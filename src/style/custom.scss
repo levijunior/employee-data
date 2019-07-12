@@ -1,0 +1,61 @@
+$primary: #2c7be5;
+$secondary: #edf2f9;
+$dark: #5e6e82;
+$box-shadow: 0 7px 14px 0 rgba(59,65,94,.1), 0 3px 6px 0 rgba(0,0,0,.07);
+$padding-card: 25px 30px;
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  
+    > .col,
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+}
+
+.box-shadow {
+    box-shadow: $box-shadow;
+}
+
+.App {
+    padding: 30px;
+    padding-bottom: 0;
+    background: $secondary;
+    min-height: 100vh;
+
+    .app_container {
+        min-height: calc(100vh - 30px);
+        
+        & > div {
+            border-right: 1px solid $secondary;
+            
+            &:last-child {
+                border: none;
+            }
+        }
+        
+        &--new {
+            padding: $padding-card;
+            border-radius: 10px 10px 0 0;
+            background: #fff;
+            height: 100%;
+        }
+
+        &--list {
+            padding: $padding-card;
+
+            .list-employees {
+                tbody > tr {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &--detail {
+            padding: $padding-card;
+        }
+
+    }
+}
