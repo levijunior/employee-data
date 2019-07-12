@@ -20,7 +20,7 @@ const AddNewEmployee = (props) => {
             <label className="m-0" htmlFor="age"><small>Age:</small></label>
             <input type="number" className="form-control" name="age"required onChange={props.handleChange} value={props.newEmployee.age || ''} />
           </div>
-          <button type="submit" className="btn btn-info">Send</button>
+          <button type="submit" className="btn btn-info" disabled={props.disabled}>Send</button>
         </form>
 
       </section>

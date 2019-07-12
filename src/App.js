@@ -14,7 +14,8 @@ class App extends Component {
       employees: [],
       initialState: [],
       specificEmployee: null,
-      newEmployee: {}
+      newEmployee: {},
+      disabled: false
     };
   }
 
@@ -28,8 +29,8 @@ class App extends Component {
 
   postEmployees = data => 
     EmployeeService.post('http://dummy.restapiexample.com/api/v1/create', data)
-    .then( res => this.getEmployees() )
-    .then( () => this.setState({newEmployee: {}}) )
+    .then( () => this.getEmployees() )
+    .then( () => this.setState({ newEmployee: {}, disabled: false }) )
     .catch(error => { console.log(error.response) })
 
 
@@ -52,6 +53,7 @@ class App extends Component {
 
   addEmployee = e => {
     e.preventDefault()
+    this.setState({disabled: true})
     let data = {
       "name": this.state.newEmployee.name,
       "salary": this.state.newEmployee.salary,
@@ -74,6 +76,7 @@ class App extends Component {
               AddEmployee={this.addEmployee}
               newEmployee={this.state.newEmployee}
               handleChange={this.handleChange}
+              disabled={this.state.disabled}
             />
           </div>
           <div className="col-12 col-lg-3 order-md-last">
