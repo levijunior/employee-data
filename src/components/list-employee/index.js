@@ -2,7 +2,7 @@ import React from 'react';
 
 const ListEmployee = props => {
   return(
-    <div className="app_container--list">
+    <div className="app_container--list padding-card">
       <h2>All employees</h2>
 
       <section className="search-employees mt-5 mb-4">

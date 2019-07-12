@@ -2,7 +2,18 @@ $primary: #2c7be5;
 $secondary: #edf2f9;
 $dark: #5e6e82;
 $box-shadow: 0 7px 14px 0 rgba(59,65,94,.1), 0 3px 6px 0 rgba(0,0,0,.07);
-$padding-card: 25px 30px;
+
+
+.padding-card {
+    padding: 25px 30px;
+}
+
+@media (max-width: 991px) {
+    .padding-card {
+        padding: 15px;
+    }   
+}
+
 
 .no-gutters {
     margin-right: 0;
@@ -30,21 +41,14 @@ $padding-card: 25px 30px;
         
         & > div {
             border-right: 1px solid $secondary;
+            border-radius: 10px 10px 0 0;
             
             &:last-child {
                 border: none;
             }
         }
-        
-        &--new {
-            padding: $padding-card;
-            border-radius: 10px 10px 0 0;
-            background: #fff;
-            height: 100%;
-        }
 
         &--list {
-            padding: $padding-card;
 
             .list-employees {
                 tbody > tr {
@@ -52,10 +56,5 @@ $padding-card: 25px 30px;
                 }
             }
         }
-
-        &--detail {
-            padding: $padding-card;
-        }
-
     }
 }

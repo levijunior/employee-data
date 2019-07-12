@@ -2,7 +2,7 @@ import React from 'react';
 
 const EmployeeDetails = (props) => {
   return(
-    <div className="app_container--detail sticky-top">
+    <div className="app_container--detail sticky-top padding-card">
         <h2 className="mb-5">Employee details</h2>
         {
           props.employeeDetail ?

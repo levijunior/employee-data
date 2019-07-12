@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       employees: [],
       initialState: [],
-      specificEmployee: null
+      specificEmployee: null,
+      newEmployee: {}
     };
   }
 
@@ -23,7 +24,12 @@ class App extends Component {
   
   getEmployees = () => 
     EmployeeService.get('http://dummy.restapiexample.com/api/v1/employees')
-    .then( employees => this.setState({ employees, initialState: employees }) )
+    .then( employees => this.setState({ employees: employees.reverse(), initialState: employees }) )
+
+  postEmployees = data => 
+    EmployeeService.post('http://dummy.restapiexample.com/api/v1/create', data)
+    .then( res => this.getEmployees() )
+    .catch(error => { console.log(error.response) })
 
 
   filterEmployee = event => {
@@ -43,12 +49,30 @@ class App extends Component {
     if(window.innerWidth < 992)window.scrollTo( 0, 0 );
   }
 
+  addEmployee = e => {
+    e.preventDefault()
+    let data = {
+      "name": this.state.newEmployee.name,
+      "salary": this.state.newEmployee.salary,
+      "age": this.state.newEmployee.age
+    }
+    this.postEmployees(data)
+  }
+
+  handleChange = event => {
+    this.setState({ newEmployee: {...this.state.newEmployee, [event.target.name]: event.target.value }});
+  }
+
   render() {
+    // console.log(this.state)
     return (
       <div className="App">
         <div className="app_container row no-gutters">
-          <div className="col-12 col-lg-3 box-shadow">
-            <AddNewEmployee />
+          <div className="col-12 col-lg-3 box-shadow bg-white">
+            <AddNewEmployee
+              AddEmployee={this.addEmployee}
+              handleChange={this.handleChange}
+            />
           </div>
           <div className="col-12 col-lg-3 order-md-last">
             <EmployeeDetails 
