@@ -29,6 +29,7 @@ class App extends Component {
   postEmployees = data => 
     EmployeeService.post('http://dummy.restapiexample.com/api/v1/create', data)
     .then( res => this.getEmployees() )
+    .then( () => this.setState({newEmployee: {}}) )
     .catch(error => { console.log(error.response) })
 
 
@@ -71,6 +72,7 @@ class App extends Component {
           <div className="col-12 col-lg-3 box-shadow bg-white">
             <AddNewEmployee
               AddEmployee={this.addEmployee}
+              newEmployee={this.state.newEmployee}
               handleChange={this.handleChange}
             />
           </div>
