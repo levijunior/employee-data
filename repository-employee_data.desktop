@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=employee-data
+Exec=/opt/google/chrome/google-chrome --profile-directory=Default --app-id=dehdhfkkdodljfogaicielckjlcbfdhi
+Icon=chrome-dehdhfkkdodljfogaicielckjlcbfdhi-Default
+StartupWMClass=crx_dehdhfkkdodljfogaicielckjlcbfdhi
+Name[pt_BR]=repository-employee_data
